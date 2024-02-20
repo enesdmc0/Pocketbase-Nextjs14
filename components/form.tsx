@@ -13,7 +13,7 @@ const Form:React.FC<Props> = ({todosLength}) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const newTodo = await pb.collection("todos").create({
-            "todo": todosLength + 1,
+            "todo": "Todo" + todosLength + 1,
             "isCompleted": false,
             "description": input
         })
