@@ -3,15 +3,18 @@ import {cn} from "@/lib/utils";
 import Form from "@/components/form";
 import DeleteButton from "@/components/delete-button";
 import UpdateButton from "@/components/update-button";
+import Realtime from "@/components/realtime";
 
 
 export const revalidate = 0;
 export default async function Home() {
 
     const todos = await pb.collection('todos').getFullList();
+    const notifications = await pb.collection('real_message').getFullList();
 
   return (
     <section className="p-20 bg-black space-y-10 h-screen">
+        <Realtime notifications={notifications} />
         <div className="flex">
             <Form todosLength={todos?.length} />
             <h1 className="flex-1 text-white font-bold  text-2xl flex items-center underline justify-center ">
