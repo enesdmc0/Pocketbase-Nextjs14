@@ -12,12 +12,11 @@ const Form:React.FC<Props> = ({todosLength}) => {
     const router= useRouter();
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const newTodo = await pb.collection("todos").create({
+         await pb.collection("todos").create({
             "todo": "Todo" + todosLength + 1,
             "isCompleted": false,
             "description": input
         })
-        console.log(newTodo, "---newtodo---");
         setInput('');
         router.refresh()
     }

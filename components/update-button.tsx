@@ -10,8 +10,7 @@ interface Props {
 const UpdateButton: React.FC<Props> = ({id, completed}) => {
     const router = useRouter();
     const handleUpdate = async () => {
-       const updatedTodo = await pb.collection("todos").update(id, {"isCompleted": !completed});
-          console.log(updatedTodo, "---updatedTodo---");
+        await pb.collection("todos").update(id, {"isCompleted": !completed});
         router.refresh();
 
     }

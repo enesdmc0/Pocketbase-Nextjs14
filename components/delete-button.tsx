@@ -9,9 +9,8 @@ interface Props {
 const DeleteButton: React.FC<Props> = ({id}) => {
     const router = useRouter();
     const handleClick = async () => {
-        const deletedTodo = await pb.collection("todos").delete(id);
+         await pb.collection("todos").delete(id);
         router.refresh();
-        console.log(deletedTodo, "---deletedTodo---");
     }
 
     return (
